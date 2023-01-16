@@ -44,7 +44,7 @@ class naiveBayes:
                 for j in range(len(self.XY)):
                     priorProbability = np.count_nonzero(RSSi == RSSi[j]) / len(RSSi)
                     var = self.var
-                    result[i,j,k] = np.exp(-np.square(RSSi[j] - test_RSSi[i])/ 2 / var)/ np.sqrt(2 * np.pi * var) # 分散＝１に固定しているので改良の余地あり
+                    result[i,j,k] = np.exp(-np.square(RSSi[j] - test_RSSi[i])/ 2 / var)/ np.sqrt(2 * np.pi * var) 
                     result[i,j,k] = result[i,j,k] * priorProbability    # ベイズの分子
                 result[i,:,k] = result[i,:,k] / np.sum(result[i,:,k])   # ベイズの定理
             result[:,:,3] += result[:,:,k]
